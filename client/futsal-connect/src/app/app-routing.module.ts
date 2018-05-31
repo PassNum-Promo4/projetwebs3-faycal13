@@ -5,6 +5,8 @@ import { HomeComponent } from './home/home.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SettingsComponent } from './settings/settings.component';
+
 
 import { AuthguardService } from './auth-guard.service';
 
@@ -28,6 +30,11 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
+    canActivate: [AuthguardService]
+  },
+  {
+    path: 'settings',
+    component: SettingsComponent,
     canActivate: [AuthguardService]
   },
   {

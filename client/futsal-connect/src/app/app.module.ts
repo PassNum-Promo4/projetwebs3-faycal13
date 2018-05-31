@@ -18,6 +18,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
+import { AddresseComponent } from './addresse/addresse.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { SettingsComponent } from './settings/settings.component';
     RegistrationComponent,
     LoginComponent,
     ProfileComponent,
-    SettingsComponent
+    SettingsComponent,
+    AddresseComponent
   ],
   imports: [
     BrowserModule,

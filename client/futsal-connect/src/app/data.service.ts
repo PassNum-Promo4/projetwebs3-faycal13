@@ -37,7 +37,7 @@ async getProfile() {
   try {
     if (localStorage.getItem('token')) {
         const data = await this.rest.get(
-          'http:/localhost:3000/api/accounts/profile'
+          'http:/localhost:3000/api/account/profile'
         );
         this.user = data['user'];
     }
