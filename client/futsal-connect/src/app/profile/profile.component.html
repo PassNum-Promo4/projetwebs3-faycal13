@@ -2,7 +2,7 @@
   <div class="container p-5">
     <h4 class="display-4">My Profile</h4>
     <hr>
-    <div *ngIf="data.user" class="m-auto">
+    <div *ngIf="!data.user" class="m-auto">
       <h1 class="text-center display-3 mt-5">
         <i class="fa fa-spinner"></i>
       </h1>
@@ -19,7 +19,7 @@
         <a routerLink="/profile/settings" class="btn btn-warning"> Change Account Settings</a>
         <br>
         <br>
-        <a routerLink="/profile/address" class="btn btn-warning">Change Shipping Address</a>
+        <a routerLink="/profile/address" class="btn btn-warning">Change Address</a>
         <br>
         <br>
         <div *ngIf="data.user.haveEvent">
@@ -27,7 +27,7 @@
           <hr>
           <div class="row">
             <div class="col-md-6 mb-3">
-              <a routerLink="/profile/postevent" class="btn-btn-outline-success btn-block">Post Event For Player</a>
+              <a routerLink="/profile/postevent" class="btn btn-outline-success btn-block">Post Event For Player</a>
             </div>
             <div class="col-md-6">
               <a routerLink="/profile/myevents" class="btn btn-outline-info btn-block">My Events</a>

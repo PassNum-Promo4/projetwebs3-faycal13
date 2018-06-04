@@ -62,7 +62,7 @@ async ngOnInit() {
     try {
       if (this.validate(this.currentSettings)) {
           const data = await this.rest.post(
-            'htpp://localhost:3000/api/accounts/profile',
+            'http://localhost:3000/api/accounts/profile',
             {
               name: this.currentSettings['name'],
               email: this.currentSettings['email'],
