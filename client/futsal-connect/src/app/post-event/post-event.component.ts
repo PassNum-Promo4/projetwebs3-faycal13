@@ -56,10 +56,9 @@ async ngOnInit() {
     this.btnDisabled = true;
     try {
       if (this.validate(this.event)) {
-          const form = new FormData();
           const data = await this.rest.post(
             'http://localhost:3000/api/haveEvent/event',
-            form
+            this.event
           );
           data['success']
           ? this.data.success(data['message'])
@@ -69,4 +68,26 @@ async ngOnInit() {
       this.btnDisabled = false;
     }
   }
+
+  /*async post() {
+    this.btnDisabled = true;
+    try {
+      if (this.validate(this.event)){
+
+
+      const data = await this.rest.post(
+        'http://localhost:3000/api/haveEvent/event',
+        this.event
+      );
+      data['success']
+      ? this.router.navigate(['/profile/post-event'])
+      .then(() => this.data.success(data['message']))
+      .catch(error => this.data.error(error))
+      : this.data.error(data['message']);
+     }
+    } catch (error) {
+      this.data.error(error['message']);
+    }
+    this.btnDisabled = false;
+}*/
 }
