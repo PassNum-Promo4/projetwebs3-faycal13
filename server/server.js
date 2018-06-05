@@ -25,7 +25,14 @@ app.use(morgan('dev'));
 app.use(cors());
 
 const userRoutes = require('./routes/account');
+const mainRoutes = require('./routes/main');
+const haveEventRoutes = require('./routes/haveEvent');
+
+
+app.use('/api', mainRoutes);
 app.use('/api/accounts', userRoutes);
+app.use('/api/haveEvent', haveEventRoutes);
+
 
 app.listen(config.port, (err) => {
   console.log("Server run on port " + config.port);

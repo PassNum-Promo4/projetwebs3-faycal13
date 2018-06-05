@@ -19,6 +19,8 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
 import { AddressComponent } from './address/address.component';
+import { CategoriesComponent } from './categories/categories.component';
+import { PostEventComponent } from './post-event/post-event.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { AddressComponent } from './address/address.component';
     ProfileComponent,
     SettingsComponent,
     AddressComponent,
+    CategoriesComponent,
+    PostEventComponent,
   ],
   imports: [
     BrowserModule,

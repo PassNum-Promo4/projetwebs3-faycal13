@@ -32,7 +32,8 @@
               <input type="checkbox" name="haveEvent" class="form-check-input" [(ngModel)]="currentSettings.haveEvent">I Look For A Player
             </label>
           </div>
-          <button type="button" class="btn btn-danger" (click)="update()" [disabled]="btnDisabled">Update</button>
+          <button type="button" class="btn btn-success" (click)="update()" [disabled]="btnDisabled">Update</button>
+          <button type="button" class="btn btn-danger" (click)="delete()" [disabled]="btnDisabled">Delete Profile</button>
         </form>
       </div>
     </div>

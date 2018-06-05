@@ -1,0 +1,35 @@
+<section id="post_event">
+  <div class="container p-5">
+    <h4 class="display-4">Post a Event</h4>
+    <hr>
+    <app-message></app-message>
+    <div *ngIf="!categories" class="m-auto">
+      <h1 class="text-center">
+        <i class="fa fa-spinner fa-spin"></i>
+      </h1>
+    </div>
+    <div *ngIf="categories" class="card bg-light">
+      <div class="card-body">
+        <form>
+          <div class="form-group">
+            <label class="form-control-label">Title</label>
+            <input type="text" name="title" class="form-control" [(ngModel)]="event.title">
+          </div>
+          <div class="form-group">
+            <label>Category</label>
+            <select class="custom-select" name="categoryId" [(ngModel)]="event.categoryId">
+              <option *ngFor="let category of categories" [value]="category._id">
+                  {{ category.name }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Description</label>
+            <textarea class="form-control" name="description" rows="5" [(ngModel)]="event.description"></textarea>
+          </div>
+          <button type="button" class="btn btn-success" (click)="post()" [disabled]="btnDisabled">Post</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

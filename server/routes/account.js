@@ -41,6 +41,7 @@ User.findOne({ email: req.body.email }, (err, existUser) => {
 });
 
 
+
 // * LOGIN * //
 router.post('/login', (req, res, next) => {
   User.findOne({ email: req.body.email }, (err, user) => {
@@ -111,8 +112,18 @@ router.route('/profile')
       message: 'Successfuly edited your profile'
     });
   });
-});
-
+})
+// DELETE PROFILE //
+.delete(checkJwt, (req, res, next) => {
+       User.findOne({ _id: req.decoded.user._id }, (err, user) => {
+           if (err) return next(err);
+           user.remove();
+           res.json({
+               success: true,
+               message: 'Successfully deleted your Account'
+           });
+       });
+   });
 // * UPDATE ADDRESS * //
 router.route('/address')
 // GET user address

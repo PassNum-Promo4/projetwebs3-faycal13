@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { DataService } from '../data.service';
 import { RestApiService } from '../rest-api.service';
@@ -13,7 +14,7 @@ export class SettingsComponent implements OnInit {
   btnDisabled = false;
   currentSettings: any;
 
-  constructor(private data: DataService, private rest: RestApiService) { }
+  constructor(private data: DataService, private rest: RestApiService, private router: Router) { }
 
 async ngOnInit() {
   try {
@@ -80,4 +81,21 @@ async ngOnInit() {
     }
     this.btnDisabled = false;
   }
+
+  async delete (){
+   this.btnDisabled = true;
+   try {
+
+       const data = await this.rest.delete(
+         'http://localhost:3000/api/accounts/profile'
+       );
+       data['success']
+         ? ( localStorage.clear() ,  this.router.navigate(['/']) )
+         : this.data.error(data['message']);
+
+   } catch (error) {
+     this.data.error(error['message']);
+   }
+   this.btnDisabled = false;
+}
 }
